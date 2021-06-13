@@ -40,6 +40,24 @@ class _SongCardState extends State<SongCard> {
     song = fetchSongData(widget.apiPath);
   }
 
+  IconButton buildIconButton() {
+    Icon icon;
+    if (isFavorite) {
+      icon = Icon(Icons.favorite, color: Colors.red);
+    } else {
+      icon = Icon(Icons.favorite_border);
+    }
+
+    IconButton iconButton = new IconButton(
+        icon: icon,
+        onPressed: () {
+          setState(() {
+            isFavorite = !isFavorite;
+          });
+        });
+    return iconButton;
+  }
+
   Card buildSongCard() {
     try {
       Card card = new Card(
@@ -50,7 +68,7 @@ class _SongCardState extends State<SongCard> {
               if (snapshot.hasData) {
                 return ListTile(
                   leading: new Image.network("${snapshot.data!.imageLink}"),
-                  trailing: Icon(Icons.favorite_border),
+                  trailing: buildIconButton(),
                   title: Text(
                       "${snapshot.data!.title} by ${snapshot.data!.artist}"),
                   isThreeLine: true,
