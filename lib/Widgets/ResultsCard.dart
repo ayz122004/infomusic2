@@ -49,14 +49,11 @@ class _ResultsCardState extends State<ResultsCard> {
     print("ResultsCard initState called");
     query = widget.query;
     fetchSearchData().then((value) {
-      // searchResultAPIPaths.addAll(value);
-      // print(
-      //     "initState fetchSearchData called. searchResults length: ${searchResultAPIPaths.length}");
-      assert(this.mounted==true);
+      assert(this.mounted == true);
       setState(() {
         searchResultAPIPaths.addAll(value);
         print(
-            "initState fetchSearchData called. searchResults length: ${searchResultAPIPaths.length}");
+            "initState fetchSearchData called. searchResults length: ${searchResultAPIPaths.length}, value length: ${value.length}");
       });
     });
   }
@@ -64,14 +61,19 @@ class _ResultsCardState extends State<ResultsCard> {
   void updateSearchResults() {
     print("updateSearchResults called, query: $query");
     fetchSearchData().then((value) {
-      assert(this.mounted==true);
-      setState(() {
-        if (searchResultAPIPaths.length == 0) {
-          searchResultAPIPaths.addAll(value);
-        } else {
-          searchResultAPIPaths.setAll(0, value);
-        }
-      });
+      if (!this.mounted) {
+        didUpdateWidget(this.widget);
+      } else {
+        assert(this.mounted == true);
+        setState(() {
+          if (searchResultAPIPaths.length >= 10) {
+            searchResultAPIPaths = value;
+          } else {
+            searchResultAPIPaths.addAll(value);
+          }
+          print("searchResultAPIPATHS length: ${searchResultAPIPaths.length}");
+        });
+      }
     });
   }
 
@@ -86,15 +88,16 @@ class _ResultsCardState extends State<ResultsCard> {
 
   @override
   Widget build(BuildContext context) {
-    assert(this.mounted==true);
+    assert(this.mounted == true);
     setState(() {
       query = widget.query;
       updateSearchResults();
     });
     print("build ResultsCard, query: $query");
-    // setState(() {
-    //   buildList();
-    // });
+    assert(this.mounted == true);
+    setState(() {
+      buildList();
+    });
     return ListView(
       children: buildList(),
     );
