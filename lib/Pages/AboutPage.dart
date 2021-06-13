@@ -14,7 +14,8 @@ class _AboutPageState extends State<AboutPage> {
       appBar: AppBar(
         title: Text("About"),
       ),
-      body: Padding(
+      body: Center(
+        child: Padding(
         padding: EdgeInsets.all(32),
         child: Card(
           child: Padding(
@@ -22,13 +23,12 @@ class _AboutPageState extends State<AboutPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Infomusic is a music metadata and lyric fetcher."),
-                Text("Uses the Genius API"),
-                Text("the metadata search mostly works"),
+                Text("Infomusic is a music metadata and lyric fetcher. Uses the Genius API. the metadata search mostly works"),               
               ],
             ),
           ),
         ),
+      ),
       ),
     );
   }

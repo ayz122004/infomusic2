@@ -33,6 +33,8 @@ class SongCard extends StatefulWidget {
 class _SongCardState extends State<SongCard> {
   late Future<Song> song;
 
+
+
   @override
   void initState() {
     super.initState();
@@ -51,16 +53,12 @@ class _SongCardState extends State<SongCard> {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      snapshot.data!.title,
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    ListTile(
+                      leading: new Image.network("${snapshot.data!.imageLink}"),
+                      title: Text("${snapshot.data!.title} by ${snapshot.data!.artist}"),
+                      isThreeLine: true,
+                      subtitle: Text("Album: ${snapshot.data!.album}\nDate: ${snapshot.data!.date}"),
                     ),
-                    Text("Artist: " + snapshot.data!.artist),
-                    Text("Album: " + snapshot.data!.album),
-                    Text(snapshot.data!.date),
                   ],
                 );
               } else if (snapshot.hasError) {

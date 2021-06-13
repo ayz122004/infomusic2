@@ -3,12 +3,14 @@ class Song {
   late String artist;
   late String album;
   late String date;
+  late String imageLink;
 
   Song({
     required this.title,
     required this.artist,
     required this.album,
     required this.date,
+    required this.imageLink,
   });
 
   static String fetchTitle(Map<String, dynamic> data) {
@@ -43,12 +45,21 @@ class Song {
     }
   }
 
+  static String fetchImageLink(Map<String, dynamic> data) {
+    try {
+      return data["response"]["song"]["header_image_thumbnail_url"];
+    } catch (Exception) {
+      return "";
+    }
+  }
+
   factory Song.fromJson(Map<String, dynamic> data) {
     return Song(
       title: fetchTitle(data),
       artist: fetchArtist(data),
       album: fetchAlbum(data),
       date: fetchDate(data),
+      imageLink: fetchImageLink(data),
     );
   }
 }
