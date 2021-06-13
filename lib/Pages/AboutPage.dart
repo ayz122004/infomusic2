@@ -19,11 +19,11 @@ class _AboutPageState extends State<AboutPage> {
         padding: EdgeInsets.all(32),
         child: Card(
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(32),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Infomusic is a music metadata and lyric fetcher. Uses the Genius API. the metadata search mostly works. lyrics and favorites coming soon"),               
+                Text("Infomusic uses the Genius API to fetch music metadata and lyrics. the metadata search mostly works. lyrics and favorites coming soon"),               
               ],
             ),
           ),

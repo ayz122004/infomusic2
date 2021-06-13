@@ -100,6 +100,7 @@ class _ResultsCardState extends State<ResultsCard> {
     });
     return ListView(
       children: buildList(),
+      physics: BouncingScrollPhysics(),
     );
   }
 }

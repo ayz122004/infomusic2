@@ -42,6 +42,7 @@ class _SearchPageState extends State<SearchPage> {
           TextField(
             controller: _controller,
             decoration: InputDecoration(
+              prefixIcon: Icon(Icons.search),
               hintText: 'Search Genius.com',
               contentPadding: EdgeInsets.all(8),
             ),
