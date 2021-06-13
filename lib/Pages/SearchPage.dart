@@ -41,9 +41,12 @@ class _SearchPageState extends State<SearchPage> {
         children: [
           TextField(
             controller: _controller,
-            decoration: InputDecoration(hintText: 'Search'),
+            decoration: InputDecoration(
+              hintText: 'Search',
+              contentPadding: EdgeInsets.all(8),
+            ),
             onSubmitted: (String value) {
-              assert(this.mounted==true);
+              assert(this.mounted == true);
               setState(() {
                 query = value;
                 print("TextField query: $query ${this.mounted}");
