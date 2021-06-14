@@ -99,6 +99,7 @@ class _ResultsCardState extends State<ResultsCard> {
       buildList();
     });
     return ListView(
+      addAutomaticKeepAlives: true,
       children: buildList(),
       physics: BouncingScrollPhysics(),
     );

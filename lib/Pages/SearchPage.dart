@@ -14,14 +14,14 @@ class _SearchPageState extends State<SearchPage> {
   static String query = "";
 
   void updateResults() {
-    _resultsCard = new ResultsCard(query);
+    _resultsCard = ResultsCard(query);
   }
 
   @override
   void initState() {
     super.initState();
     _controller = TextEditingController();
-    _resultsCard = new ResultsCard(query);
+    _resultsCard = ResultsCard(query);
   }
 
   @override

@@ -25,11 +25,18 @@ class _HomeState extends State<Home> {
 
   void _onItemTapped(int index) {
     _pageController.jumpToPage(index);
+    // setState(() {
+    //   _selectedIndex = index;
+    // });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // body: IndexedStack(
+      //   index: _selectedIndex,
+      //   children: _screens,
+      // ),
       body: PageView(
         controller: _pageController,
         children: _screens,

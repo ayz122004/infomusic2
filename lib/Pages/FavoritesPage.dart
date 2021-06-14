@@ -15,19 +15,12 @@ class _FavoritesPageState extends State<FavoritesPage> {
       appBar: AppBar(
         title: Text("Favorites"),
       ),
-      // body: Padding(
-      //   padding: EdgeInsets.all(32),
-      //   child: Text(
-      //     "under construction",
-      //     style: TextStyle(fontSize: 24),
-      //   ),
-      // ),
-
       body: Column(
         children: [
-          Text("under construction", style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic)),
+          Text("road work ahead",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           Flexible(
-            child: new FavoritesCard(),
+            child: FavoritesCard(),
           ),
         ],
       ),

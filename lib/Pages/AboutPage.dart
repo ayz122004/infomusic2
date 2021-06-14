@@ -23,7 +23,7 @@ class _AboutPageState extends State<AboutPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Infomusic uses the Genius API to fetch music metadata and lyrics. the metadata search mostly works. lyrics and favorites coming soon"),               
+                Text("Infomusic uses the Genius API to fetch music metadata. the search page mostly works. favorites is somewhate functional."),               
               ],
             ),
           ),
