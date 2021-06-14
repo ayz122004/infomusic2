@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:infomusic2/Widgets/FavoritesCard.dart';
 
 class FavoritesPage extends StatefulWidget {
   const FavoritesPage({Key? key}) : super(key: key);
@@ -14,12 +15,21 @@ class _FavoritesPageState extends State<FavoritesPage> {
       appBar: AppBar(
         title: Text("Favorites"),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(32),
-        child: Text(
-          "under construction",
-          style: TextStyle(fontSize: 24),
-        ),
+      // body: Padding(
+      //   padding: EdgeInsets.all(32),
+      //   child: Text(
+      //     "under construction",
+      //     style: TextStyle(fontSize: 24),
+      //   ),
+      // ),
+
+      body: Column(
+        children: [
+          Text("under construction", style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic)),
+          Flexible(
+            child: new FavoritesCard(),
+          ),
+        ],
       ),
     );
   }

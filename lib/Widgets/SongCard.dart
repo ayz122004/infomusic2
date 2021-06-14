@@ -1,13 +1,15 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:infomusic2/GeniusObjects/Song.dart';
+import 'package:infomusic2/Widgets/FavoritesCard.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class SongCard extends StatefulWidget {
   final String apiPath;
+  bool isFavorite = false;
   //const SongCard({Key? key}) : super(key: key);
-  const SongCard(this.apiPath);
+  SongCard(this.apiPath);
 
   @override
   _SongCardState createState() => _SongCardState();
@@ -54,6 +56,7 @@ class _SongCardState extends State<SongCard> {
           setState(() {
             isFavorite = !isFavorite;
           });
+          addSong(this.widget);
         });
     return iconButton;
   }
